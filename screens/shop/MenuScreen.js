@@ -2,8 +2,11 @@ import React from 'react';
 import { View, Text, FlatList, Button, StyleSheet } from 'react-native';
 
 import Colors from '../../constants/Colors';
+// import { useDispatch } from 'reac-redux';
+import * as authActions from '../../store/actions/auth';
 
 const MenuScreen = ({ navigation }) => {
+  // const dispatch = useDispatch();
 
   return (
     <View style={styles.screen}>
@@ -32,6 +35,33 @@ const MenuScreen = ({ navigation }) => {
           }}
          />
        </View>
+
+              <View style={styles.summary}>
+                <Text style={styles.summaryText}>
+                  My Auth
+                </Text>
+                <Button
+                  color={Colors.accent}
+                  title="My Auth"
+                  onPress={() => {
+                    navigation.navigate('Auth')
+                 }}
+                />
+              </View>
+
+              <View style={styles.summary}>
+                <Text style={styles.summaryText}>
+                  LogOut
+                </Text>
+                <Button
+                  color={Colors.accent}
+                  title="LogOut"
+                  onPress={() => {
+                     // dispatch(authActions.logout());
+                     // navigation.navigate('Auth');
+                 }}
+                />
+              </View>
     </View>
   );
 };
